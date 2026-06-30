@@ -32,10 +32,10 @@
     "test:integration": "../../../node_modules/.bin/jest --passWithNoTests --forceExit --testPathPattern=\"integration-tests/__tests__/.*\\.ts\""
   },
   "devDependencies": {
-    "@zjedene-medusa/framework": "2.16.1",
+    "@zjedene-medusa/framework": "2.16.2",
     "@zjedene-medusa/test-utils": "2.16.1"
   },
   "peerDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   }
 }

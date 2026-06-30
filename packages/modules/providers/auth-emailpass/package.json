@@ -26,13 +26,13 @@
     "watch": "yarn run -T tsc --watch"
   },
   "devDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   },
   "dependencies": {
     "scrypt-kdf": "^2.0.1"
   },
   "peerDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   },
   "keywords": [
     "medusa-provider",

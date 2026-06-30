@@ -26,14 +26,14 @@
     "watch": "yarn run -T tsc --watch"
   },
   "devDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.2",
     "jwks-rsa": "^3.1.0"
   },
   "peerDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   },
   "keywords": [
     "medusa-provider",

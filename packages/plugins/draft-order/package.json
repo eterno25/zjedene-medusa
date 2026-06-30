@@ -56,17 +56,17 @@
   "devDependencies": {
     "@zjedene-medusa/admin-sdk": "2.16.1",
     "@zjedene-medusa/cli": "2.16.1",
-    "@zjedene-medusa/framework": "2.16.1",
+    "@zjedene-medusa/framework": "2.16.2",
     "@zjedene-medusa/icons": "2.16.1",
     "@zjedene-medusa/test-utils": "2.16.1",
-    "@zjedene-medusa/types": "2.16.1",
+    "@zjedene-medusa/types": "2.16.2",
     "@zjedene-medusa/ui": "4.1.16",
     "@zjedene-medusa/ui-preset": "2.16.1"
   },
   "peerDependencies": {
     "@zjedene-medusa/admin-sdk": "2.16.1",
     "@zjedene-medusa/cli": "2.16.1",
-    "@zjedene-medusa/framework": "2.16.1",
+    "@zjedene-medusa/framework": "2.16.2",
     "@zjedene-medusa/icons": "2.16.1",
     "@zjedene-medusa/test-utils": "2.16.1",
     "@zjedene-medusa/ui": "4.1.16",

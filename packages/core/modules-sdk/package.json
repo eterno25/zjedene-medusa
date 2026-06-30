@@ -31,7 +31,7 @@
     "watch": "yarn run -T tsc --build --watch"
   },
   "devDependencies": {
-    "@zjedene-medusa/types": "2.16.1"
+    "@zjedene-medusa/types": "2.16.2"
   },
   "dependencies": {
     "@zjedene-medusa/deps": "2.16.1",
