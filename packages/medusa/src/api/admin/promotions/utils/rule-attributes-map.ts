@@ -4,7 +4,7 @@ import {
   PromotionType,
   RuleOperator,
 } from "@zjedene-medusa/framework/utils"
-import { operatorsMap } from "./operators-map"
+import { numericOperatorsMap, operatorsMap } from "./operators-map"
 import {
   ApplicationMethodTargetTypeValues,
   ApplicationMethodTypeValues,
@@ -49,6 +49,65 @@ const ruleAttributes = [
     required: false,
     field_type: "multiselect",
     operators: Object.values(operatorsMap),
+  },
+  {
+    id: "total",
+    value: "total",
+    label: "Cart Total",
+    required: false,
+    field_type: "number",
+    operators: Object.values(numericOperatorsMap),
+  },
+  {
+    id: "city",
+    value: "shipping_address.city",
+    label: "Shipping City",
+    required: false,
+    // Rendered as a value picker so deployments can serve a curated set of
+    // cities (e.g. the deliverable towns) from a `rule-value-options/.../city`
+    // route. Falls back to an empty picker when no such route is provided.
+    field_type: "multiselect",
+    operators: Object.values(operatorsMap),
+  },
+  {
+    id: "customer_order_count",
+    value: "customer_order_count",
+    label: "Customer Order Count",
+    required: false,
+    field_type: "number",
+    operators: Object.values(numericOperatorsMap),
+  },
+  {
+    id: "customer_account_age_days",
+    value: "customer_account_age_days",
+    label: "Customer Account Age (days since registration)",
+    required: false,
+    field_type: "number",
+    operators: Object.values(numericOperatorsMap),
+  },
+  {
+    id: "is_logged_in",
+    value: "is_logged_in",
+    label: "Customer Logged In",
+    required: false,
+    field_type: "select",
+    operators: [operatorsMap[RuleOperator.EQ]],
+  },
+  {
+    id: "current_day_of_week",
+    value: "current_day_of_week",
+    label: "Day of Week",
+    required: false,
+    field_type: "multiselect",
+    operators: [operatorsMap[RuleOperator.IN]],
+  },
+  {
+    id: "current_minutes",
+    value: "current_minutes",
+    label: "Time of Day",
+    required: false,
+    field_type: "time",
+    operators: Object.values(numericOperatorsMap),
   },
 ]
 

@@ -1,6 +1,6 @@
 {
   "name": "@zjedene-medusa/medusa",
-  "version": "2.16.1",
+  "version": "2.16.2",
   "description": "Building blocks for digital commerce",
   "main": "dist/index.js",
   "exports": {
@@ -49,13 +49,13 @@
     "test:integration": "../../node_modules/.bin/jest --passWithNoTests --forceExit --testPathPattern=\"src/.*/integration-tests/__tests__/.*\\.ts\""
   },
   "devDependencies": {
-    "@zjedene-medusa/framework": "2.16.1"
+    "@zjedene-medusa/framework": "2.16.2"
   },
   "dependencies": {
     "@inquirer/checkbox": "^2.3.11",
     "@inquirer/confirm": "^2.0.17",
     "@inquirer/input": "^2.2.9",
-    "@zjedene-medusa/admin-bundler": "2.16.1",
+    "@zjedene-medusa/admin-bundler": "2.16.2",
     "@zjedene-medusa/analytics": "2.16.1",
     "@zjedene-medusa/analytics-local": "2.16.1",
     "@zjedene-medusa/analytics-posthog": "2.16.1",
@@ -69,7 +69,7 @@
     "@zjedene-medusa/caching": "2.16.1",
     "@zjedene-medusa/caching-redis": "2.16.1",
     "@zjedene-medusa/cart": "2.16.1",
-    "@zjedene-medusa/core-flows": "2.16.1",
+    "@zjedene-medusa/core-flows": "2.16.2",
     "@zjedene-medusa/currency": "2.16.1",
     "@zjedene-medusa/customer": "2.16.1",
     "@zjedene-medusa/draft-order": "2.16.1",
@@ -94,7 +94,7 @@
     "@zjedene-medusa/payment-stripe": "2.16.1",
     "@zjedene-medusa/pricing": "2.16.1",
     "@zjedene-medusa/product": "2.16.1",
-    "@zjedene-medusa/promotion": "2.16.1",
+    "@zjedene-medusa/promotion": "2.16.2",
     "@zjedene-medusa/rbac": "2.16.1",
     "@zjedene-medusa/region": "2.16.1",
     "@zjedene-medusa/sales-channel": "2.16.1",
@@ -123,7 +123,7 @@
   },
   "peerDependencies": {
     "@swc/core": "^1.7.28",
-    "@zjedene-medusa/framework": "2.16.1",
+    "@zjedene-medusa/framework": "2.16.2",
     "posthog-node": "^5.11.0",
     "react-dom": "^18.3.1",
     "yalc": "^1.0.0-pre.53"

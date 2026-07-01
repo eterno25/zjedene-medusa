@@ -1,6 +1,6 @@
 {
   "name": "@zjedene-medusa/framework",
-  "version": "2.16.1",
+  "version": "2.16.2",
   "description": "Framework",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -81,7 +81,7 @@
     "@zjedene-medusa/modules-sdk": "2.16.1",
     "@zjedene-medusa/orchestration": "2.16.1",
     "@zjedene-medusa/telemetry": "2.16.1",
-    "@zjedene-medusa/types": "2.16.1",
+    "@zjedene-medusa/types": "2.16.2",
     "@zjedene-medusa/utils": "2.16.1",
     "@zjedene-medusa/workflows-sdk": "2.16.1",
     "chokidar": "^4.0.3",
