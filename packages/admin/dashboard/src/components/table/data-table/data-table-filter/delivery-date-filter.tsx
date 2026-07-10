@@ -12,8 +12,11 @@ import { IFilter } from "./types"
 
 type DeliveryDateValue = { count: number } | { $gte?: string; $lte?: string }
 
-const parseValue = (value: string[]): DeliveryDateValue | null =>
-  value?.length ? (JSON.parse(value.join(",")) as DeliveryDateValue) : null
+const parseValue = (value: string[]): DeliveryDateValue | null => {
+  return value?.length
+    ? (JSON.parse(value.join(",")) as DeliveryDateValue)
+    : null
+}
 
 const useBuckets = () => {
   const { t } = useTranslation()
@@ -87,7 +90,9 @@ export const DeliveryDateFilter = ({
       return buckets.find((b) => b.count === parsed.count)?.label
     }
     return [customStart, customEnd]
-      .map((d) => (d ? getFullDate({ date: d }) : undefined))
+      .map((d) => {
+        return d ? getFullDate({ date: d }) : undefined
+      })
       .filter(Boolean)
       .join(" - ")
   })()
