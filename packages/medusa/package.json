@@ -1,6 +1,6 @@
 {
   "name": "@zjedene-medusa/medusa",
-  "version": "2.16.2",
+  "version": "2.16.3",
   "description": "Building blocks for digital commerce",
   "main": "dist/index.js",
   "exports": {
@@ -55,7 +55,7 @@
     "@inquirer/checkbox": "^2.3.11",
     "@inquirer/confirm": "^2.0.17",
     "@inquirer/input": "^2.2.9",
-    "@zjedene-medusa/admin-bundler": "2.16.2",
+    "@zjedene-medusa/admin-bundler": "2.16.3",
     "@zjedene-medusa/analytics": "2.16.1",
     "@zjedene-medusa/analytics-local": "2.16.1",
     "@zjedene-medusa/analytics-posthog": "2.16.1",

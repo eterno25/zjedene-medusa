@@ -38,7 +38,7 @@
   "peerDependencies": {
     "@zjedene-medusa/core-flows": "2.16.2",
     "@zjedene-medusa/framework": "2.16.2",
-    "@zjedene-medusa/medusa": "2.16.2"
+    "@zjedene-medusa/medusa": "2.16.3"
   },
   "peerDependenciesMeta": {
     "@zjedene-medusa/core-flows": {

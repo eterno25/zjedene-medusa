@@ -1,6 +1,6 @@
 {
   "name": "@zjedene-medusa/dashboard",
-  "version": "2.16.2",
+  "version": "2.16.3",
   "scripts": {
     "typecheck": "tsgo --noEmit -p tsconfig.typecheck.json",
     "generate:static": "node ./scripts/generate-currencies.js && prettier --write ./src/lib/currencies.ts",

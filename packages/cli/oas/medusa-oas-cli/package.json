@@ -1,6 +1,6 @@
 {
   "name": "@zjedene-medusa/medusa-oas-cli",
-  "version": "2.16.2",
+  "version": "2.16.3",
   "description": "OAS CLI",
   "main": "dist/index.js",
   "bin": {
@@ -31,7 +31,7 @@
     "@readme/json-schema-ref-parser": "^1.2.0",
     "@readme/openapi-parser": "^2.4.0",
     "@redocly/cli": "1.25.3",
-    "@zjedene-medusa/medusa": "2.16.2",
+    "@zjedene-medusa/medusa": "2.16.3",
     "@zjedene-medusa/utils": "2.16.1",
     "commander": "^11.0.0",
     "execa": "^5.1.1",
