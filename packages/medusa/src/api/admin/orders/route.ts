@@ -9,6 +9,7 @@ import {
   buildDeliveryDateFilterSql,
   DeliveryDateFilterInput,
 } from "./utils/delivery-date-filter"
+import { intersectIds } from "./utils/intersect-ids"
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<HttpTypes.AdminOrderFilters>,
@@ -43,7 +44,12 @@ export const GET = async (
       ids = rows.map((r: { id: string }) => r.id)
     }
 
-    if (!ids.length) {
+    // AND-compose with any caller-supplied `id` filter so delivery_date
+    // narrows the result set like every other orders-list filter, instead of
+    // overwriting `id`.
+    const matchedIds = intersectIds(filters.id, ids)
+
+    if (!matchedIds.length) {
       res.json({
         orders: [],
         count: 0,
@@ -53,7 +59,7 @@ export const GET = async (
       return
     }
 
-    filters.id = ids
+    filters.id = matchedIds
   }
 
   const variables = {
