@@ -18,6 +18,19 @@ const parseValue = (value: string[]): DeliveryDateValue | null => {
     : null
 }
 
+const pad = (n: number): string => {
+  return String(n).padStart(2, "0")
+}
+
+const toLocalDateString = (d: Date): string => {
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
+const parseLocalDate = (s: string): Date => {
+  const [y, m, d] = s.split("-").map(Number)
+  return new Date(y, m - 1, d)
+}
+
 const useBuckets = () => {
   const { t } = useTranslation()
   return useMemo(
@@ -54,14 +67,8 @@ export const DeliveryDateFilter = ({
   const parsed = parseValue(currentValue)
   const range = parsed && !("count" in parsed) ? parsed : null
 
-  const customStart = range?.$gte ? new Date(range.$gte) : undefined
-  const customEnd = range?.$lte
-    ? (() => {
-        const d = new Date(range.$lte)
-        d.setHours(0, 0, 0, 0)
-        return d
-      })()
-    : undefined
+  const customStart = range?.$gte ? parseLocalDate(range.$gte) : undefined
+  const customEnd = range?.$lte ? parseLocalDate(range.$lte) : undefined
 
   const handleSelectBucket = (count: number) => {
     selectedParams.add(JSON.stringify({ count }))
@@ -75,13 +82,11 @@ export const DeliveryDateFilter = ({
 
   const handleCustomDateChange = (value: Date | null, pos: "start" | "end") => {
     const k = pos === "start" ? "$gte" : "$lte"
-    let dateValue = value
-    if (k === "$lte" && value) {
-      dateValue = new Date(value.getTime())
-      dateValue.setHours(23, 59, 59, 999)
-    }
     selectedParams.add(
-      JSON.stringify({ ...(range || {}), [k]: dateValue?.toISOString() })
+      JSON.stringify({
+        ...(range || {}),
+        [k]: value ? toLocalDateString(value) : undefined,
+      })
     )
   }
 
