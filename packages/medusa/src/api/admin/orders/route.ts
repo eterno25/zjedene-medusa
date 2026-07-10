@@ -1,19 +1,63 @@
 import { getOrdersListWorkflow } from "@zjedene-medusa/core-flows"
 import { HttpTypes, OrderDTO } from "@zjedene-medusa/framework/types"
+import { ContainerRegistrationKeys } from "@zjedene-medusa/framework/utils"
 import {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@zjedene-medusa/framework/http"
+import {
+  buildDeliveryDateFilterSql,
+  DeliveryDateFilterInput,
+} from "./utils/delivery-date-filter"
 
 export const GET = async (
   req: AuthenticatedMedusaRequest<HttpTypes.AdminOrderFilters>,
   res: MedusaResponse<HttpTypes.AdminOrderListResponse>
 ) => {
+  const filters: Record<string, any> = {
+    ...req.filterableFields,
+    is_draft_order: false,
+  }
+
+  // `delivery_date` is a custom filter over `metadata.delivery_dates` that the
+  // order module can't express. Resolve matching order ids via raw JSONB SQL,
+  // then narrow the normal query with `id IN (…)` so pagination/count stay
+  // correct.
+  // ponytail: pre-resolve ids then id IN — fine at admin order volume; revisit
+  // (GIN/expression index, or a keyset join) only if order count explodes.
+  const deliveryDate = filters.delivery_date as
+    | DeliveryDateFilterInput
+    | undefined
+  delete filters.delivery_date
+
+  if (deliveryDate) {
+    const knex = req.scope.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+    const sql = buildDeliveryDateFilterSql(deliveryDate)
+
+    let ids: string[] = []
+    if (sql) {
+      const rows = await knex("order")
+        .whereNull("deleted_at")
+        .whereRaw(sql.clause, sql.bindings)
+        .select("id")
+      ids = rows.map((r: { id: string }) => r.id)
+    }
+
+    if (!ids.length) {
+      res.json({
+        orders: [],
+        count: 0,
+        offset: req.queryConfig.pagination.skip ?? 0,
+        limit: req.queryConfig.pagination.take ?? 0,
+      })
+      return
+    }
+
+    filters.id = ids
+  }
+
   const variables = {
-    filters: {
-      ...req.filterableFields,
-      is_draft_order: false,
-    },
+    filters,
     ...req.queryConfig.pagination,
   }
 

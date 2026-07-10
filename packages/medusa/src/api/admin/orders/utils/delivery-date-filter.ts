@@ -1,6 +1,6 @@
 export type DeliveryDateFilterInput =
   | { count: number }
-  | { $gte?: string; $lte?: string; $gt?: string; $lt?: string }
+  | { $gte?: string; $lte?: string }
 
 export type DeliveryDateSql = {
   clause: string

@@ -64,6 +64,15 @@ const AdminGetOrdersParamsBase = createFindParams({
     created_at: createOperatorMap().optional(),
     updated_at: createOperatorMap().optional(),
     total: createOperatorMap().optional(),
+    delivery_date: z
+      .union([
+        z.object({ count: z.coerce.number().int().positive() }),
+        z.object({
+          $gte: z.string().optional(),
+          $lte: z.string().optional(),
+        }),
+      ])
+      .optional(),
   })
 )
 
