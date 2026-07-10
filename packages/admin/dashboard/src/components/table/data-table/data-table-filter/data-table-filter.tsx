@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { DataTableFilterContext, useDataTableFilterContext } from "./context"
 import { DateFilter } from "./date-filter"
+import { DeliveryDateFilter } from "./delivery-date-filter"
 import { NumberFilter } from "./number-filter"
 import { SelectFilter } from "./select-filter"
 import { StringFilter } from "./string-filter"
@@ -35,6 +36,10 @@ export type Filter = {
     }
   | {
       type: "number"
+      options?: never
+    }
+  | {
+      type: "delivery-date"
       options?: never
     }
 )
@@ -162,6 +167,16 @@ export const DataTableFilter = ({
             case "number":
               return (
                 <NumberFilter
+                  key={filter.key}
+                  filter={filter}
+                  prefix={prefix}
+                  readonly={readonly}
+                  openOnMount={filter.openOnMount}
+                />
+              )
+            case "delivery-date":
+              return (
+                <DeliveryDateFilter
                   key={filter.key}
                   filter={filter}
                   prefix={prefix}
