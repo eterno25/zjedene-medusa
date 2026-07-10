@@ -19,7 +19,7 @@ const COL = "metadata->'delivery_dates'"
 export function buildDeliveryDateFilterSql(
   input: DeliveryDateFilterInput
 ): DeliveryDateSql | null {
-  if ("count" in input && input.count != null) {
+  if ("count" in input) {
     return {
       clause: `jsonb_typeof(${COL}) = 'array' AND jsonb_array_length(${COL}) = ?`,
       bindings: [input.count],
