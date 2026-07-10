@@ -149,6 +149,12 @@ export const useOrderTableFilters = (): Filter[] => {
 
     filters.push(...dateFilters)
 
+    filters.push({
+      key: "delivery_date",
+      label: t("orders.filters.deliveryDate"),
+      type: "delivery-date",
+    })
+
     // TODO: enable when Payment, Fulfillments <> Orders are linked
     // filters.push(paymentStatusFilter)
     // filters.push(fulfillmentStatusFilter)

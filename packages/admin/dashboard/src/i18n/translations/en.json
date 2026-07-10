@@ -1087,6 +1087,16 @@
     "cancelWarning": "You are about to cancel the order {{id}}. This action cannot be undone.",
     "orderCanceled": "Order canceled successfully",
     "onDateFromSalesChannel": "{{date}} from {{salesChannel}}",
+    "filters": {
+      "deliveryDate": "Delivery Date",
+      "deliveryDateCustomRange": "Custom range",
+      "deliveryDateBuckets": {
+        "oneDelivery": "1 delivery",
+        "oneWeek": "1 week",
+        "oneMonth": "1 month",
+        "twoMonths": "2 months"
+      }
+    },
     "list": {
       "noRecordsMessage": "Your orders will show up here."
     },

@@ -22,6 +22,7 @@ export const useOrderTableQuery = ({
       // "fulfillment_status",
       "order",
       "total",
+      "delivery_date",
     ],
     prefix
   )
@@ -36,6 +37,7 @@ export const useOrderTableQuery = ({
     region_id,
     q,
     order,
+    delivery_date,
     // total,
   } = queryObject
 
@@ -51,6 +53,11 @@ export const useOrderTableQuery = ({
     order: order ? order : "-created_at",
     q,
     // total: total ? JSON.parse(total) : undefined,
+  }
+
+  if (delivery_date) {
+    ;(searchParams as Record<string, unknown>).delivery_date =
+      JSON.parse(delivery_date)
   }
 
   return {
